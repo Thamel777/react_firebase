@@ -28,3 +28,6 @@ try {
   // Analytics can fail in some environments (SSR, restricted browsers). Not fatal.
   console.warn('Firebase analytics not initialized:', e.message || e);
 }
+
+export { firebaseConfig, app };
+export default app;
