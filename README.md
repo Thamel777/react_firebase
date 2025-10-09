@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Fruit Inventory Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React + Firebase CRUD experience inspired by Vercel’s dashboard aesthetic. The UI layers Tailwind CSS, realtime toasts, and silky hover transitions over the existing data flow.
 
-## Available Scripts
+## ✨ Highlights
 
-In the project directory, you can run:
+- **Tailwind-powered design system** with custom color tokens for primary/save, update, delete, and navigation actions (`tailwind.config.js`).
+- **Responsive dashboard shell** featuring a gradient backdrop, glassmorphism cards, and a sticky navbar with a dark-mode toggle.
+- **Realtime Firebase CRUD** with optimistic loading states, confirmation dialogs, and toast feedback for create/update/delete operations.
+- **Reusable UI atoms** including `Spinner` and `ConfirmDialog` powered by Headless UI.
 
-### `npm start`
+## 🧱 Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React 19 (Create React App)
+- Firebase Realtime Database
+- Tailwind CSS 3 + PostCSS + Autoprefixer
+- Headless UI + Heroicons (navigation + dialogs)
+- react-hot-toast for feedback
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Getting Started
 
-### `npm test`
+```powershell
+npm install
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The dev server runs on [http://localhost:3000](http://localhost:3000). Environment credentials for Firebase are read from `src/firebaseConfig.js`.
 
-### `npm run build`
+To build for production:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```powershell
+npm run build
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Unit tests (from CRA scaffolding) are available via `npm test`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🎨 Design System Overview
 
-### `npm run eject`
+| Token | Usage | Example |
+| --- | --- | --- |
+| `primary` | Create/save actions | Blue pills (`btn-primary`) |
+| `update` | Edit actions | Amber pills (`btn-update`) |
+| `danger` | Destructive actions | Red pills (`btn-danger`) |
+| `navigate` | Navigation/support | Teal pills (`btn-navigate`) |
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Additional utilities (`glass-card`, `card-title`, etc.) live in `src/index.css` and can be applied across new pages.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Layout anatomy
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- `AppLayout` wraps every route and provides the gradient background, navbar, footer, and responsive container.
+- Individual CRUD screens render inside glass cards with a consistent heading hierarchy (subtitle → title → body copy).
+- Grid layouts adapt from 1 column on mobile to 3 columns on wide screens for fruit cards.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Feedback & UX
 
-## Learn More
+- **Toasts** announce create/update/delete success and error states.
+- **Loading spinners** render while data loads from Firebase (`Spinner` component).
+- **Confirmation modal** (`ConfirmDialog`) protects destructive deletes.
+- **Dark mode toggle** persists preference (`fruit-inventory:dark`) and restyles the gradient/background.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🔧 Extending the UI
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Update theme tokens in `tailwind.config.js` to tweak accent colors or shadows.
+- Add new reusable utilities in `src/index.css` under the `@layer utilities` block.
+- Compose additional pages by wrapping content in the `glass-card` container and reusing the button utility classes.
 
-### Code Splitting
+## 📄 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT — reuse and adapt for your own realtime dashboards.

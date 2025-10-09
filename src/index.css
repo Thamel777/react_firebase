@@ -1,18 +1,45 @@
-body {
-  margin: 0;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: rosybrown;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
 }
 
-.App {
-  width: 50%;
-  margin: auto;
-  text-align: center;
-}
+@layer utilities {
+  .glass-card {
+    @apply rounded-3xl bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 shadow-soft transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl dark:bg-slate-900/70 dark:supports-[backdrop-filter]:bg-slate-900/60;
+  }
 
-.button1{
-  font-family: 'Trebuchet MS';
-  background-color: aquamarine;
-  font-weight: bolder;
-  font-size: 19px;
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-md shadow-primary/30 transition-all duration-200 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+  }
+
+  .btn-update {
+    @apply inline-flex items-center justify-center rounded-full bg-update px-5 py-2 text-sm font-semibold text-update-foreground shadow-md shadow-update/30 transition-all duration-200 hover:scale-[1.02] hover:shadow-lg hover:shadow-update/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-update;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center rounded-full bg-danger px-5 py-2 text-sm font-semibold text-danger-foreground shadow-md shadow-danger/30 transition-all duration-200 hover:scale-[1.02] hover:shadow-lg hover:shadow-danger/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-danger;
+  }
+
+  .btn-navigate {
+    @apply inline-flex items-center justify-center rounded-full bg-navigate px-5 py-2 text-sm font-semibold text-navigate-foreground shadow-md shadow-navigate/30 transition-all duration-200 hover:scale-[1.02] hover:shadow-lg hover:shadow-navigate/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navigate;
+  }
+
+  .card-title {
+    @apply text-2xl font-semibold text-slate-900 dark:text-slate-100;
+  }
+
+  .card-subtitle {
+    @apply text-sm font-medium uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400;
+  }
+
+  .card-body {
+    @apply text-sm leading-relaxed text-slate-600 dark:text-slate-300;
+  }
 }
